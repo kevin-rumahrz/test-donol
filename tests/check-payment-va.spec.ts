@@ -16,11 +16,12 @@ const vaMethods = [
     { name: 'VA CIMB', isExact: false },
 ];
 
-test.describe('Check Payment', () => {
+test.describe('Check Metode Pembayaran - VA', () => {
     test.setTimeout(40000);
 
     test.beforeEach(async ({ page }) => {
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {
+            // await page.goto('https://www.rumahzakat.org/donasi/zakat-penghasilan');
             await page.goto('https://www.rumahzakat.org/donasi');
             await page.getByRole('button').filter({ hasText: /^$/ }).click();
             await page.getByRole('link', { name: 'Zakat', exact: true }).click();
@@ -34,7 +35,9 @@ test.describe('Check Payment', () => {
             await page.getByRole('textbox', { name: 'Email' }).fill('testing@test.test');
             await page.getByRole('checkbox', { name: 'Dengan ini, saya menyetujui' }).check();
             await page.mouse.wheel(0, 600);
-            await page.getByRole('button', { name: 'Oke, Tutup' }).click();
+            const buttonCloseSedekahDaging = page.getByRole('button', { name: 'Oke, Tutup', exact: true });
+            const buttonCloseInfakID = page.getByRole('button', { name: 'Tutup', exact: true });
+            await buttonCloseSedekahDaging.or(buttonCloseInfakID).click();
         });
     });
 
