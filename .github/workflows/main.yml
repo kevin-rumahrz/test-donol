@@ -1,11 +1,9 @@
-name: Cron Donol Automated Tests - Check Method Payment
+name: Donol Automated Tests - Check Method Payment
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
-  schedule:
-    - cron: '40 7 * * *'
   workflow_dispatch:
 
 permissions:
@@ -31,7 +29,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run testing
-        run: npx playwright test /tests/check-payment-ewallet.spec.ts
+        run: npx playwright test
         continue-on-error: true
 
       - name: Upload Pages artifact
