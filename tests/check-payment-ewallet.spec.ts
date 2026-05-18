@@ -30,7 +30,6 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
         
         await test.step('Pilih metode pembayaran: GoPay', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            
             await page.getByText('eWallet').click();
             await page.getByText('Gopay', { exact: true }).click();
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
@@ -50,19 +49,15 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
     test('ShopeePay', async ({ page }) => {
         await test.step('Pilih metode pembayaran: ShopeePay', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            
             await page.getByText('eWallet').click();
             await page.getByText('ShopeePay').click();
-            
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
             await page.getByRole('button', { name: 'Aamiin Ya Rabbal’alamin' }).click();
         });
 
         await test.step('Validasi Halaman Instruksi Pembayaran ShopeePay', async () => {
             await expect(page.getByRole('main')).toContainText('Scan QR Berikut dengan Aplikasi ShopeePay');
-            
             await expect(page.getByRole('img', { name: 'Qr Shoope', exact: true })).toBeVisible();
-            
             await expect(page.getByRole('main')).toContainText('Panduan Pembayaran via');
         });
     });
@@ -70,10 +65,8 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
     test('OVO', async ({ page }) => {
         await test.step('Pilih metode pembayaran: OVO', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            
             await page.getByText('eWallet').click();
             await page.getByText('OVO').click();
-            
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
         });
 
@@ -87,14 +80,13 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
     test('DANA', async ({ page }) => {
         await test.step('Pilih metode pembayaran: DANA', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            
             await page.getByText('eWallet').click();
             await page.getByText('DANA', { exact: true }).click();
-            
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
         });
 
         await test.step('Validasi Halaman Instruksi Pembayaran Dana', async () => {
+            await page.waitForLoadState('domcontentloaded');
             await expect(page.getByText('Step 1 Input Phone Number IN PROGRESS Step 2 Continue Payment Input your phone')).toBeVisible();
 
         });
@@ -103,7 +95,6 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
     test('Link Aja Syariah', async ({ page }) => {
         await test.step('Pilih metode pembayaran: Link Aja Syariah', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            
             await page.getByText('eWallet').click();
             await page.getByText('LinkAja Syariah').click();            
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
@@ -118,10 +109,8 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
     test('Virgo', async ({ page }) => {
         await test.step('Pilih metode pembayaran: Virgo', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            
             await page.getByText('eWallet').click();
             await page.getByText('Virgo').click();
-            
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
         });
         
@@ -135,10 +124,8 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
     test('Link Aja', async ({ page }) => {
         await test.step('Pilih metode pembayaran: Link Aja', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            
             await page.getByText('eWallet').click();
             await page.getByText('LinkAja', { exact: true }).click();
-            
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
         });
 
