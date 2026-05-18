@@ -1,4 +1,7 @@
-name: Playwright Tests to GitHub Pages
+name: Cron Donol Automated Tests - Check Method Payment
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   schedule:
@@ -27,7 +30,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Run testing
         run: npx playwright test
         continue-on-error: true
 
