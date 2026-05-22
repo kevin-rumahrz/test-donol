@@ -20,13 +20,7 @@ git clone https://github.com/kevin-rumahrz/test-donol.git
 cd test-donol
 ```
 
-### 2. Install Dependencies
-
-```bash
-npm ci
-```
-
-### 3. Install Playwright & Browsers
+### 2. Install Playwright & Browsers
 
 ```bash
 npx playwright install --with-deps
@@ -48,7 +42,7 @@ npx playwright test
 npx playwright test tests/method-payment/check-payment-ewallet.spec.ts
 ```
 
-### Jalankan test dengan UI mode (interaktif)
+### Jalankan test dengan UI mode
 
 ```bash
 npx playwright test --ui
