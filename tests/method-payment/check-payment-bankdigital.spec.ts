@@ -9,7 +9,7 @@ test.describe('Check Metode Pembayaran - Credit Card', () => {
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {
             await page.goto('https://www.rumahzakat.org/donasi');
 
-            await page.getByRole('button').filter({ hasText: /^$/ }).click();
+        await page.getByRole('button', { name: 'Close popup' }).click();
 
             await page.getByRole('link', { name: 'Zakat', exact: true }).click();
             await page.getByRole('link', { name: 'Zakat Penghasilan' }).click();
@@ -46,5 +46,20 @@ test.describe('Check Metode Pembayaran - Credit Card', () => {
             await expect(page.getByRole('textbox', { name: '$Cashtag' })).toBeVisible();
         });
     });
+
+    // test('Blu', async ({ page }) => {
+
+    //     await test.step('Pilih metode pembayaran: Blu', async () => {
+    //         await page.getByText('Pilih Metode Pembayaran* Klik').click();
+
+    //         await page.getByText('Bank Digital').click();
+    //         await page.getByText('Blu').click();
+    //         await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
+    //     });
+
+    //     await test.step('Validasi halaman Blu berhasil dimuat', async () => {
+            
+    //     });
+    // });
 
 });
