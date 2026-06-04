@@ -40,9 +40,14 @@ test.describe('Check Metode Pembayaran - QRIS', () => {
         });
 
         await test.step('Validasi Halaman Instruksi Pembayaran QRIS', async () => {
-            await expect(page.locator('div').filter({ hasText: 'Download QRIS' }).nth(5)).toBeVisible();
-            await expect(page.locator('img')).toBeVisible();
-            await expect(page.getByRole('button', { name: 'Download QRIS' })).toBeVisible();
+            //Validasi QR Code Gajahpay
+            // await expect(page.locator('div').filter({ hasText: 'Download QRIS' }).nth(5)).toBeVisible();
+            // await expect(page.locator('img')).toBeVisible();
+            // await expect(page.getByRole('button', { name: 'Download QRIS' })).toBeVisible();
+
+            // Validasi QR Code Faspay
+            await expect(page.locator('img').nth(5)).toBeVisible();
+            await expect(page.getByRole('heading', { name: 'Detail Transaksi Pemesanan' })).toBeVisible();
         });
     });
 
