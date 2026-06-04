@@ -46,8 +46,10 @@ test.describe('Check Metode Pembayaran - QRIS', () => {
             // await expect(page.getByRole('button', { name: 'Download QRIS' })).toBeVisible();
 
             // Validasi QR Code Faspay
-            await expect(page.locator('img').nth(5)).toBeVisible();
-            await expect(page.getByRole('heading', { name: 'Detail Transaksi Pemesanan' })).toBeVisible();
+            await expect(page.locator('#vanumber')).toContainText('Nomor Transaksi');
+            await expect(page.getByRole('rowgroup')).toContainText('Merchant');
+            await expect(page.getByRole('rowgroup')).toContainText('Yayasan Rumah Zakat');
+            await expect(page.locator('#totpay')).toContainText('Total Pembayaran');
         });
     });
 
