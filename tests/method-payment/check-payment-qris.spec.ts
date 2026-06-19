@@ -40,7 +40,6 @@ test.describe('Check Metode Pembayaran - QRIS', () => {
         });
 
         await test.step('Validasi Halaman Instruksi Pembayaran QRIS', async () => {
-            //Validasi QR Code Gajapay
             await expect(page.getByRole('button', { name: 'Download QRIS' })).toBeVisible();
             await expect(page.getByRole('img', { name: 'QR Code' })).toBeVisible();
 

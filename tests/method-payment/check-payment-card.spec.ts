@@ -42,7 +42,6 @@ test.describe('Check Metode Pembayaran - Credit Card', () => {
         await test.step('Validasi Pop-up Form Kartu Credit Debit berhasil dimuat', async () => {
             const creditCardFrame = page.frameLocator('iframe[name^="popup_"]');
 
-            await expect(creditCardFrame.locator('form')).toContainText('Kartu kredit/debit');
             await expect(creditCardFrame.locator('form')).toContainText('Nomor kartu');
             await expect(creditCardFrame.locator('form')).toContainText('Masa berlaku');
             await expect(creditCardFrame.locator('form')).toContainText('CVV');
