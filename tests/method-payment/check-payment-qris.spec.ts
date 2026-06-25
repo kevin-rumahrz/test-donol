@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Check Metode Pembayaran - QRIS', () => {
+test.describe('QRIS', () => {
 
     test.setTimeout(60000);
 

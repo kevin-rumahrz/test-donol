@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Check Metode Pembayaran - E-Wallet', () => {
+test.describe('E-Wallet', () => {
 
     test.setTimeout(60000);
 

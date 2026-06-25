@@ -16,7 +16,7 @@ const vaMethods = [
     { name: 'VA CIMB', isExact: false },
 ];
 
-test.describe('Check Metode Pembayaran - VA', () => {
+test.describe('VA', () => {
     test.setTimeout(60000);
 
     test.beforeEach(async ({ page }) => {
