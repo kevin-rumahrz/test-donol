@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 const vaMethods = [
-    { name: 'VA Muamalat', isExact: false },
     { name: 'VA BSI', isExact: false },
+    { name: 'VA Muamalat', isExact: false },
     { name: 'VA Permata Syariah', isExact: false },
     { name: 'VA Mandiri', isExact: false },
     { name: 'VA BCA', isExact: false },
@@ -56,6 +56,7 @@ test.describe('Check Metode Pembayaran - VA', () => {
                 } else {
                     await page.getByText(bank.name).click();
                 }
+                await page.waitForTimeout(1500);
             });
 
             await test.step('Proses checkout dan konfirmasi doa', async () => {
