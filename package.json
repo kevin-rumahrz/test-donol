@@ -18,11 +18,10 @@
   "homepage": "https://github.com/kevin-rumahrz/test-donol#readme",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.7.0",
-    "@types/pg": "^8.20.0"
+    "@types/node": "^25.7.0"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
-    "pg": "^8.22.0"
+    "mysql2": "^3.22.5"
   }
 }

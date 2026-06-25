@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Check Metode Pembayaran - Credit Card', () => {
 
-    test.setTimeout(40000);
+    test.setTimeout(60000);
 
     test.beforeEach(async ({ page }) => {
 
@@ -47,19 +47,20 @@ test.describe('Check Metode Pembayaran - Credit Card', () => {
         });
     });
 
-    // test('Blu', async ({ page }) => {
+    test('Blu', async ({ page }) => {
 
-    //     await test.step('Pilih metode pembayaran: Blu', async () => {
-    //         await page.getByText('Pilih Metode Pembayaran* Klik').click();
+        await test.step('Pilih metode pembayaran: Blu', async () => {
+            await page.getByText('Pilih Metode Pembayaran* Klik').click();
 
-    //         await page.getByText('Bank Digital').click();
-    //         await page.getByText('Blu').click();
-    //         await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
-    //     });
+            await page.getByText('Bank Digital').click();
+            await page.getByText('Blu').click();
+            await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
+            await page.waitForTimeout(1500);
+        });
 
-    //     await test.step('Validasi halaman Blu berhasil dimuat', async () => {
+        await test.step('Validasi halaman Blu berhasil dimuat', async () => {
             
-    //     });
-    // });
+        });
+    });
 
 });

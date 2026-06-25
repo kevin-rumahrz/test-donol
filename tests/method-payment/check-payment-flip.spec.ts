@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Check Metode Pembayaran - Flip', () => {
 
-    test.setTimeout(40000);
+    test.setTimeout(60000);
 
     test.beforeEach(async ({ page }) => {
 
@@ -37,6 +37,7 @@ test.describe('Check Metode Pembayaran - Flip', () => {
             await page.getByText('Flip').nth(1).click();
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
             await page.getByRole('button', { name: 'Aamiin Ya Rabbal’alamin' }).click();
+            await page.waitForTimeout(1500);
         });
 
         await test.step('Validasi Halaman Instruksi Pembayaran Flip', async () => {

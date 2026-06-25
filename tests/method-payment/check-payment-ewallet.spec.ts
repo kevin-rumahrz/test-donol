@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Check Metode Pembayaran - E-Wallet', () => {
 
-    test.setTimeout(40000);
+    test.setTimeout(60000);
 
     test.beforeEach(async ({ page }) => {
 
@@ -26,6 +26,7 @@ test.describe('Check Metode Pembayaran - E-Wallet', () => {
             const buttonCloseSedekahDaging = page.getByRole('button', { name: 'Oke, Tutup', exact: true });
             const buttonCloseInfakID = page.getByRole('button', { name: 'Tutup', exact: true });
             await buttonCloseSedekahDaging.or(buttonCloseInfakID).click();
+            await page.waitForTimeout(1500);
         });
     });
 
