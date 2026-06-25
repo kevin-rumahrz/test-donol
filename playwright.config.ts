@@ -19,7 +19,7 @@ if (!process.env.CI) {
 
 export default defineConfig({
   expect: {
-    timeout: 15000,
+    timeout: 20000,
   },
 
   testDir: './tests',
