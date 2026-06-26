@@ -21,7 +21,12 @@ class DbReporter implements Reporter {
             await pool.execute(
                 `INSERT INTO playwright_test_results 
                 (run_id, suite_title, test_title, status, duration_ms, error_message, executed_at) 
-                VALUES (?, ?, ?, ?, ?, ?, NOW())`,
+                VALUES (?, ?, ?, ?, ?, ?, NOW())
+                ON DUPLICATE KEY UPDATE 
+                status = VALUES(status),
+                duration_ms = VALUES(duration_ms),
+                error_message = VALUES(error_message),
+                executed_at = NOW()`,
                 [this.runId, suiteTitle, testTitle, status, durationMs, errorMessage]
             );
         } catch (err) {
