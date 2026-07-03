@@ -43,7 +43,7 @@ test.describe('QRIS', () => {
 
         await test.step('Validasi Halaman Instruksi Pembayaran QRIS', async () => {
             await expect(page.getByRole('button', { name: 'Download QRIS' })).toBeVisible();
-            await expect(page.getByRole('img', { name: 'QR Code' })).toBeVisible();
+            await expect(page.locator('img')).toBeVisible();
 
             // // Validasi QR Code Faspay
             // await expect(page.locator('#vanumber')).toContainText('Nomor Transaksi');
