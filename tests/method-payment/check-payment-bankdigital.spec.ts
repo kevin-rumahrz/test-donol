@@ -7,12 +7,9 @@ test.describe('Bank Digital', () => {
     test.beforeEach(async ({ page }) => {
 
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {
-            await page.goto('https://www.rumahzakat.org/donasi');
+            await page.goto('https://www.rumahzakat.org/donasi/zakat-penghasilan');
 
-        await page.getByRole('button', { name: 'Close popup' }).click();
-
-            await page.getByRole('link', { name: 'Zakat', exact: true }).click();
-            await page.getByRole('link', { name: 'Zakat Penghasilan' }).click();
+            await page.getByRole('button', { name: 'Close popup' }).click();
             await page.getByRole('button', { name: 'Tunaikan Sekarang' }).click();
         });
 
