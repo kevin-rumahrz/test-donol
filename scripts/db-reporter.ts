@@ -1,5 +1,5 @@
 import { Reporter, TestCase, TestResult, FullResult } from '@playwright/test/reporter';
-import { pool } from '../utils/db'; 
+import { pool } from '../utils/dbHelper'; 
 
 class DbReporter implements Reporter {
     private runId: string;

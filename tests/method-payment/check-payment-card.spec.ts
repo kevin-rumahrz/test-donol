@@ -1,9 +1,6 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Credit Card', () => {
-
-    test.setTimeout(60000);
-
     test.beforeEach(async ({ page }) => {
 
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {

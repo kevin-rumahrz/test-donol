@@ -17,8 +17,6 @@ const vaMethods = [
 ];
 
 test.describe('VA', () => {
-    test.setTimeout(60000);
-
     test.beforeEach(async ({ page }) => {
 
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {

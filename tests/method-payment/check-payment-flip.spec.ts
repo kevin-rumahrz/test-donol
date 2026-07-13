@@ -1,9 +1,6 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Flip', () => {
-
-    test.setTimeout(60000);
-
     test.beforeEach(async ({ page }) => {
 
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {
@@ -28,7 +25,7 @@ test.describe('Flip', () => {
 
     test('Flip', async ({ page }) => {
 
-        await test.step('Pilih metode pembayaran: QRIS', async () => {
+        await test.step('Pilih metode pembayaran: Flip', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
             await page.getByText('Flip').first().click();
             await page.getByText('Flip').nth(1).click();

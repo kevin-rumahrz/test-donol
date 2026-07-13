@@ -2,8 +2,6 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Bank Digital', () => {
 
-    test.setTimeout(60000);
-
     test.beforeEach(async ({ page }) => {
 
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {

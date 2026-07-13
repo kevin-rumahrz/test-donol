@@ -18,8 +18,9 @@ if (!process.env.CI) {
 }
 
 export default defineConfig({
+  timeout: 60 * 1000,
   expect: {
-    timeout: 20000,
+    timeout: 20 * 1000,
   },
 
   testDir: './tests',
@@ -28,14 +29,15 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 1,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 2 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
     ['list'],
-    ['./scripts/db-reporter.ts']
+    ['./scripts/db-reporter.ts'],
+    ['./scripts/telegram-reporter.ts']
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

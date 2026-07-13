@@ -1,9 +1,6 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('E-Wallet', () => {
-
-    test.setTimeout(60000);
-
     test.beforeEach(async ({ page }) => {
 
         await test.step('Navigasi ke halaman Zakat Penghasilan', async () => {
@@ -73,7 +70,7 @@ test.describe('E-Wallet', () => {
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
         });
 
-        await test.step('Validasi Halaman Instruksi Pembayaran ShopeePay', async () => {
+        await test.step('Validasi Halaman Instruksi Pembayaran OVO', async () => {
             await expect(page.locator('body')).toContainText('Segera lakukan konfirmasi pembayaran melalui aplikasi OVO Anda dalam waktu');
             await expect(page.locator('body')).toContainText('01 Periksa notifikasi / buka aplikasi OVO 02 Masukan kode keamanan Anda 03 Ketuk tombol bayar pada detil tagihan 04 Selamat pembayaran Anda berhasil');
             await expect(page.getByText('© 2026 iPay88 Indonesia. All')).toBeVisible();
@@ -95,20 +92,20 @@ test.describe('E-Wallet', () => {
         });
     });
 
-    // test('Virgo', async ({ page }) => {
+    test('Virgo', async ({ page }) => {
 
-    //     await test.step('Pilih metode pembayaran: Virgo', async () => {
-    //         await page.getByText('Pilih Metode Pembayaran* Klik').click();
-    //         await page.getByText('eWallet').click();
-    //         await page.getByText('Virgo').click();
-    //         await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
-    //     });
+        await test.step('Pilih metode pembayaran: Virgo', async () => {
+            await page.getByText('Pilih Metode Pembayaran* Klik').click();
+            await page.getByText('eWallet').click();
+            await page.getByText('Virgo').click();
+            await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
+        });
 
-    //     await test.step('Validasi Halaman Instruksi Pembayaran Virgo', async () => {
-    //         await expect(page.getByTestId('one-time-payment-login-interface-v1')).toBeVisible();
-    //         await expect(page.getByTestId('one-time-payment-login-interface-v1')).toContainText('Masukkan nomor HP kamu');
-    //     });
-    // });
+        await test.step('Validasi Halaman Instruksi Pembayaran Virgo', async () => {
+            await expect(page.getByTestId('one-time-payment-login-interface-v1')).toBeVisible();
+            await expect(page.getByTestId('one-time-payment-login-interface-v1')).toContainText('Masukkan nomor HP kamu');
+        });
+    });
 
     test('Link Aja', async ({ page }) => {
 
