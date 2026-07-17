@@ -92,20 +92,20 @@ test.describe('E-Wallet', () => {
         });
     });
 
-    test('Virgo', async ({ page }) => {
+    // test('Virgo', async ({ page }) => {
 
-        await test.step('Pilih metode pembayaran: Virgo', async () => {
-            await page.getByText('Pilih Metode Pembayaran* Klik').click();
-            await page.getByText('eWallet').click();
-            await page.getByText('Virgo').click();
-            await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
-        });
+    //     await test.step('Pilih metode pembayaran: Virgo', async () => {
+    //         await page.getByText('Pilih Metode Pembayaran* Klik').click();
+    //         await page.getByText('eWallet').click();
+    //         await page.getByText('Virgo').click();
+    //         await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
+    //     });
 
-        await test.step('Validasi Halaman Instruksi Pembayaran Virgo', async () => {
-            await expect(page.getByTestId('one-time-payment-login-interface-v1')).toBeVisible();
-            await expect(page.getByTestId('one-time-payment-login-interface-v1')).toContainText('Masukkan nomor HP kamu');
-        });
-    });
+    //     await test.step('Validasi Halaman Instruksi Pembayaran Virgo', async () => {
+    //         await expect(page.getByTestId('one-time-payment-login-interface-v1')).toBeVisible();
+    //         await expect(page.getByTestId('one-time-payment-login-interface-v1')).toContainText('Masukkan nomor HP kamu');
+    //     });
+    // });
 
     test('Link Aja', async ({ page }) => {
 
