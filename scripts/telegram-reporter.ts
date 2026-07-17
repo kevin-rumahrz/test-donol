@@ -87,7 +87,7 @@ class TelegramReporter implements Reporter {
         } else {
             lines.push('🔴 <b>[FAILED] Automated Test Report</b>');
             lines.push('');
-            lines.push('<b>TINDAKAN DIBUTUHKAN.</b> Terdapat kegagalan pada pengujian Method Payment.');
+            lines.push('<b>TINDAKAN DIBUTUHKAN @anggityukihiro </b> Terdapat kegagalan pada pengujian Method Payment.');
         }
 
         lines.push('');
