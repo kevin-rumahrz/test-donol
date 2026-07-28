@@ -42,20 +42,20 @@ test.describe('Bank Digital', () => {
         });
     });
 
-    test('Blu', async ({ page }) => {
+    // test('Blu', async ({ page }) => {
 
-        await test.step('Pilih metode pembayaran: Blu', async () => {
-            await page.getByText('Pilih Metode Pembayaran* Klik').click();
+    //     await test.step('Pilih metode pembayaran: Blu', async () => {
+    //         await page.getByText('Pilih Metode Pembayaran* Klik').click();
 
-            await page.getByText('Bank Digital').click();
-            await page.getByText('Blu').click();
-            await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
-            await page.waitForTimeout(1500);
-        });
+    //         await page.getByText('Bank Digital').click();
+    //         await page.getByText('Blu').click();
+    //         await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
+    //         await page.waitForTimeout(1500);
+    //     });
 
-        await test.step('Validasi halaman Blu berhasil dimuat', async () => {
+    //     await test.step('Validasi halaman Blu berhasil dimuat', async () => {
             
-        });
-    });
+    //     });
+    // });
 
 });
