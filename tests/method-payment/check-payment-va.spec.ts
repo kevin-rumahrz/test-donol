@@ -14,6 +14,8 @@ const vaMethods = [
     { name: 'VA Sinarmas', isExact: false },
     { name: 'VA Danamon', isExact: false },
     { name: 'VA CIMB', isExact: false },
+    { name: 'VA BTN', isExact: false },
+    { name: 'VA BNC', isExact: false },
 ];
 
 test.describe('VA', () => {
