@@ -48,6 +48,7 @@ export default defineConfig({
     // screenshot: 'on',
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
+    video: 'retain-on-failure',
     baseURL: process.env.BASE_URL
   },
 
