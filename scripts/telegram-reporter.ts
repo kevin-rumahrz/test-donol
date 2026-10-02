@@ -19,7 +19,6 @@ function formatDuration(ms: number): string {
 }
 
 const LOG_URL = 'https://kevin-rumahrz.github.io/test-donol/';
-const DASHBOARD_URL = 'https://datastudio.google.com/u/0/reporting/fa60b1ee-f113-44b3-9440-7e5c096ae5a9/page/p_h7gqwkox4d';
 
 function formatJakartaTime(date: Date): string {
     const parts = new Intl.DateTimeFormat('id-ID', {
@@ -116,11 +115,7 @@ class TelegramReporter implements Reporter {
         }
 
         lines.push('');
-        lines.push(
-            isSuccess
-                ? `🔍 <a href="${LOG_URL}">Lihat Log Lengkap</a>`
-                : `🔍 <a href="${DASHBOARD_URL}">Lihat Dashboard Report &amp; Log</a>`
-        );
+        lines.push(`🔍 <a href="${LOG_URL}">Lihat Log Lengkap</a>`);
 
         try {
             await sendTelegramMessage(lines.join('\n'));
