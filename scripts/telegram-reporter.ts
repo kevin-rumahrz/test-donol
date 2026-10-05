@@ -136,6 +136,6 @@ class TelegramReporter implements Reporter {
             }
         }
     }
-}
+}//test
 
 export default TelegramReporter;
