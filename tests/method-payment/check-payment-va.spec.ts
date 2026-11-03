@@ -16,6 +16,7 @@ const vaMethods = [
     { name: 'VA CIMB', isExact: false },
     { name: 'VA BTN', isExact: false },
     { name: 'VA BNC', isExact: false },
+    { name: 'VA Panin Dubai Syariah', isExact: false },
 ];
 
 test.describe('VA', () => {
