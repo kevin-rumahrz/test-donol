@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Request } from '@playwright/test';
 
 test.describe('Flip', () => {
     test.beforeEach(async ({ page }) => {
@@ -24,22 +24,36 @@ test.describe('Flip', () => {
     });
 
     test('Flip', async ({ page }) => {
+        const FLIP_URL = /^https:\/\/(pwf\.)?flip\.id\/pwf\//;
+        let flipRequest!: Promise<Request>;
 
         await test.step('Pilih metode pembayaran: Flip', async () => {
             await page.getByText('Pilih Metode Pembayaran* Klik').click();
             await page.getByText('Flip').first().click();
             await page.getByText('Flip').nth(1).click();
+
+            await page.route(/^https:\/\/([a-z]+\.)?flip\.id\//, async route => {
+                if (route.request().resourceType() === 'document') {
+                    await route.fulfill({
+                        status: 200,
+                        contentType: 'text/html',
+                        body: '<html><body><h1>Simulated Flip Payment Page</h1></body></html>',
+                    });
+                } else {
+                    await route.abort();
+                }
+            });
+
             await page.getByRole('button', { name: 'Bayar Sekarang' }).click();
+            flipRequest = page.waitForRequest(req => FLIP_URL.test(req.url()) && req.isNavigationRequest());
             await page.getByRole('button', { name: 'Aamiin Ya Rabbal’alamin' }).click();
-            await page.waitForTimeout(1500);
         });
 
-        await test.step('Validasi Halaman Instruksi Pembayaran Flip', async () => {
-            await expect(page.getByRole('heading', { name: 'Selesaikan Pembayaran' })).toBeVisible();
-            await expect(page.getByRole('textbox', { name: 'Contoh: arifbudiman@mail.com' })).toBeVisible();
-            await expect(page.getByRole('textbox', { name: 'Contoh: Arif Budiman' })).toBeVisible();
-            await expect(page.getByTestId('qa-button')).toBeVisible();
-
+        await test.step('Validasi redirect ke Flip (mocked)', async () => {
+            const req = await flipRequest;
+            expect(req.url()).toContain('RZTumbuhBersama');
+            await expect(page).toHaveURL(FLIP_URL);
+            await expect(page.getByRole('heading', { name: 'Simulated Flip Payment Page' })).toBeVisible();
         });
     });
 
