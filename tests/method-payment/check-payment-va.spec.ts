@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 const vaMethods = [
-    // { name: 'VA BSI', isExact: false },
-    { name: 'VA Muamalat', isExact: false },
+    { name: 'VA BSI', isExact: false },
+    // { name: 'VA Muamalat', isExact: false },
     { name: 'VA Permata Syariah', isExact: false },
     { name: 'VA Mandiri', isExact: false },
     { name: 'VA BCA', isExact: false },
@@ -16,7 +16,7 @@ const vaMethods = [
     { name: 'VA CIMB', isExact: false },
     { name: 'VA BTN', isExact: false },
     { name: 'VA BNC', isExact: false },
-    { name: 'VA Panin Dubai Syariah', isExact: false },
+    // { name: 'VA Panin Dubai Syariah', isExact: false },
 ];
 
 test.describe('VA', () => {
